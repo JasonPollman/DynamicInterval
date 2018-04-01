@@ -1,5 +1,5 @@
 # @jasonpollman/dynamic-interval
-**For the rare cases when you might need an interval in which the delay between calls is dynamic.**    
+**For the rare cases when you might need an interval where the delay between calls is dynamic.**    
 This small utility library exports two functions `setDynamicInterval` and `clearDynamicInterval`.
 
 ## Install
@@ -11,7 +11,6 @@ npm install @jasonpollman/dynamic-interval --save
 
 For the browser:    
 **`dist/dynamicInterval.min.js` is UMD**    
-So it's consumable by browsers.
 
 ```html
 <script src="dist/dynamicInterval.min.js"></script>
@@ -37,7 +36,7 @@ const timerReference = setDynamicInterval(() => console.log('Hello World!'), int
 ```
 
 ## API
-**`setDynamicInterval({function} callback, {function|Array|number} intervalScheduler, {...any} params) => {object}`**
+**setDynamicInterval({function} callback, {function|Array|number} intervalScheduler, {...any} params) => {object}**    
 Calls `callback` every `intervalScheduler()` milliseconds and returns a reference for clearing.
 
 `setDynamicInterval` takes in two functions: `callback` and `intervalScheduler`. All remaining
@@ -52,11 +51,12 @@ While debatable, this is by design and differs from the behavior of `setInterval
 `intervalScheduler` also supports `Array` types, which will iterate over each value in the array
 and terminate when either a non-numeric value is found or all values have been exhausted.
 
-**`clearDynamicInterval({object} dynamicIntervalReference) => {undefined}`**
+**clearDynamicInterval({object} dynamicIntervalReference) => {undefined}**    
 Clears a dynamic interval reference. Softly fails for all other misuse.
 
 ## Examples
 
+### Double Time
 Sets an interval that's twice as long as the previous, starting with *one second*.
 ```js
 let multiplier = 500;
@@ -73,11 +73,12 @@ function intervalScheduler() {
 setDynamicInterval(callback, intervalScheduler);
 ```
 
+### Array Based
 **You can use an array—it will clear the interval once all values have been used once.**    
 Note, the input array is left unmutated.
 
-The following will run 3 times, first after 100ms, then 200ms, then 300ms. The interval
-will then be cleared since no items remain in the array.
+The following will run 3 times, first after 100ms, then 200ms, then 300ms.    
+The interval will then be cleared since no items remain in the array.
 
 ```js
 setDynamicInterval(() => { /* Do something... */ }, [100, 200, 300]);
