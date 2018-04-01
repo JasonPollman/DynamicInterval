@@ -1,0 +1,27 @@
+{
+  "sourceMaps": "inline",
+  "presets": [
+    "stage-0",
+    [
+      "env",
+      {
+        "node": "4.0.0",
+        "browsers": ["last 2 versions", "ie 9"]
+      }
+    ]
+  ],
+  "env": {
+    "test": {
+      "plugins": ["istanbul"]
+    },
+    "browser": {
+      "sourceMaps": true,
+      "compact": true,
+      "minified": true,
+      "retainLines": false,
+      "comments": false,
+      "presets": ["minify"],
+      "plugins": ["transform-es2015-modules-umd"]
+    }
+  }
+}
