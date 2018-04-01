@@ -36,7 +36,8 @@ const timerReference = setDynamicInterval(() => console.log('Hello World!'), int
 ```
 
 ## API
-**setDynamicInterval({function} callback, {function|Array|number} intervalScheduler, {...any} params) => {object}**    
+
+### setDynamicInterval({function} callback, {function|Array|number} intervalScheduler, {...any} params) => {object}
 Calls `callback` every `intervalScheduler()` milliseconds and returns a reference for clearing.
 
 `setDynamicInterval` takes in two functions: `callback` and `intervalScheduler`. All remaining
@@ -51,7 +52,7 @@ While debatable, this is by design and differs from the behavior of `setInterval
 `intervalScheduler` also supports `Array` types, which will iterate over each value in the array
 and terminate when either a non-numeric value is found or all values have been exhausted.
 
-**clearDynamicInterval({object} dynamicIntervalReference) => {undefined}**    
+### clearDynamicInterval({object} dynamicIntervalReference) => {undefined}**
 Clears a dynamic interval reference. Softly fails for all other misuse.
 
 ## Examples
