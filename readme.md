@@ -52,7 +52,7 @@ While debatable, this is by design and differs from the behavior of `setInterval
 `intervalScheduler` also supports `Array` types, which will iterate over each value in the array
 and terminate when either a non-numeric value is found or all values have been exhausted.
 
-### clearDynamicInterval({object} dynamicIntervalReference) => {undefined}**
+### clearDynamicInterval({object} dynamicIntervalReference) => {undefined}
 Clears a dynamic interval reference. Softly fails for all other misuse.
 
 ## Examples
